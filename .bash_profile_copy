@@ -1,0 +1,43 @@
+# git autocompletion
+# curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+# aliases
+
+# git
+alias gs="git status"
+alias gb="git branch"
+alias gp="git push -f"
+alias gg="git pull"
+alias gm="git checkout master"
+alias gcb="git checkout origin/master -b"
+
+# ssh
+
+# ipn
+alias ipn="jupyter notebook"
+
+# virtualenv
+alias denv="deactivate"
+
+# environment
+
+# PS1
+
+RED='\[\033[31m\]'
+WHITE='\[\033[37m\]'
+GREEN='\[\033[32m\]'
+
+if [[ $VIRTUAL_ENV != "" ]]
+    then
+      # Strip out the path and just leave the env name
+      venv="${RED}(${VIRTUAL_ENV##*/})"
+else
+      # In case you don't have one activated
+      venv=''
+fi
+
+export PS1="${venv}${GREEN}\w${WHITE}> \[$(tput sgr0)\]"
