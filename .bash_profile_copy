@@ -41,3 +41,10 @@ else
 fi
 
 export PS1="${venv}${GREEN}\w${WHITE}> \[$(tput sgr0)\]"
+
+# functions
+
+killshit() {
+    ps aux | grep $1 | grep -v grep | awk '{print $2}' | xargs kill
+}
+
