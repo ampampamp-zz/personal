@@ -21,7 +21,21 @@ alias gcb="git checkout origin/master -b"
 alias ipn="jupyter notebook"
 
 # virtualenv
+venv() {
+    . ~/venvs/$1/bin/activate
+}
+
 alias denv="deactivate"
+
+declare -A dir_aliases=(["alias1"]="dir1" ["alias2"]="dir2")
+
+workon() {
+    dir=${dir_aliases[$1]}
+    if [ -z $dir ]; then
+        echo "{$1} does not exist as a directory"
+        dir=$1
+    fi
+}
 
 # environment
 
